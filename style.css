@@ -1,0 +1,559 @@
+
+/* ================================
+   GENERAL
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #492c49;
+    color: #fff0d0;
+    font-family: 'VT323', monospace;
+    font-size: 23px;
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: #492c49;
+    border: none;
+    box-shadow: none;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+    position: relative;
+    padding: 25px 20px 45px;
+    background: #d94f91;
+    border-bottom: 5px solid #211e27;
+    overflow: hidden;
+}
+
+.header h1 {
+    margin: 0;
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 21px;
+    line-height: 1.8;
+    text-shadow: 3px 3px #a52d63;
+}
+
+.header p {
+    margin-top: 18px;
+    color: #39283c;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+}
+
+.header-top {
+    display: none;
+}
+
+.pixel-divider {
+    display: none;
+}
+
+
+/* ================================
+   SECTION STYLING
+================================ */
+
+section {
+    padding: 35px 20px;
+    border-bottom: 3px solid #211e27;
+}
+
+h2 {
+    margin: 0;
+    color: #d94f91;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.section-heading span {
+    color: #f0bd45;
+    font-size: 22px;
+}
+
+.tiny-star {
+    display: none;
+}
+
+
+/* ================================
+   PROGRESS SECTION
+================================ */
+
+.summary {
+    background: #492c49;
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    padding: 3px;
+    background: #211e27;
+    border: 3px solid #17141d;
+    box-shadow: 4px 4px #17141d;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background-color: #d94f91;
+
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 9px,
+        #492c49 9px,
+        #492c49 12px
+    );
+
+    transition: width 0.3s steps(10);
+}
+
+.progress-caption {
+    margin-top: 25px;
+    color: #fff0d0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+
+/* ================================
+   ADD TASK SECTION
+================================ */
+
+.add-section {
+    background: #492c49;
+}
+
+.add-section h2 {
+    margin-bottom: 18px;
+}
+
+#taskForm {
+    display: flex;
+    gap: 15px;
+}
+
+#taskInput {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+
+    background: #211e27;
+    color: white;
+
+    border: 3px solid #d94f91;
+    border-radius: 0;
+    outline: none;
+
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+}
+
+#taskInput::placeholder {
+    color: #a9829e;
+}
+
+#taskInput:focus {
+    border-color: #f0bd45;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+button {
+    border: 3px solid #17141d;
+    border-radius: 0;
+
+    padding: 14px 18px;
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px #17141d;
+    transition: transform 0.1s steps(2);
+}
+
+button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px #17141d;
+}
+
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.add-btn {
+    background: #d94f91;
+    color: white;
+}
+
+
+/* ================================
+   FILTER SECTION
+================================ */
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    padding: 30px 15px;
+
+    background: #39283c;
+}
+
+.filter-btn {
+    padding: 12px;
+    background: transparent;
+    color: #f28bb7;
+    border: 2px solid transparent;
+    box-shadow: none;
+    font-size: 9px;
+}
+
+.filter-btn:hover {
+    box-shadow: none;
+    color: white;
+}
+
+.filter-btn.active {
+    background: #d94f91;
+    color: white;
+    border: 2px solid #17141d;
+    box-shadow: 4px 4px #17141d;
+}
+
+
+/* ================================
+   TASK LIST
+================================ */
+
+.tasks-section {
+    background: #492c49;
+    min-height: 150px;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+    margin-bottom: 15px;
+
+    background: #39283c;
+    border: 3px solid #211e27;
+
+    box-shadow: 4px 4px #211e27;
+}
+
+.task-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+
+    background: #211e27;
+    border: 3px solid #f28bb7;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.task-checkbox:checked {
+    background: #39a83e;
+    border-color: #39a83e;
+}
+
+.task-checkbox:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    position: relative;
+    top: -4px;
+    left: 1px;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+    color: #fff0d0;
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    overflow-wrap: anywhere;
+}
+
+#taskList li.completed .task-text {
+    color: #a9829e;
+    text-decoration: line-through;
+}
+
+
+/* ================================
+   EDIT AND DELETE
+================================ */
+
+.edit-btn {
+    background: #d94f91;
+    color: white;
+}
+
+.delete-btn {
+    background: #922e62;
+    color: white;
+}
+
+
+/* ================================
+   EMPTY MESSAGE
+================================ */
+
+.empty-message {
+    text-align: center;
+    padding: 25px;
+    color: #f28bb7;
+}
+
+.empty-message svg {
+    display: none;
+}
+
+.empty-message p {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+}
+
+.empty-message span {
+    font-size: 20px;
+    color: #a9829e;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+    display: none;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+    .header h1 {
+        font-size: 15px;
+    }
+
+    .header p {
+        font-size: 7px;
+    }
+
+    section {
+        padding: 25px 15px;
+    }
+
+    #taskForm {
+        flex-direction: column;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .filter-section {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        font-size: 7px;
+        padding: 10px 6px;
+    }
+
+    #taskList li {
+        flex-wrap: wrap;
+    }
+
+    .task-text {
+        flex-basis: calc(100% - 45px);
+    }
+
+}
+
+
+/* ================================
+   COMPACT LAYOUT
+================================ */
+
+/* Main website */
+.container {
+    max-width: 780px;
+    margin: 20px auto;
+}
+
+/* Header */
+.header {
+    padding: 15px 20px 20px;
+}
+
+.header h1 {
+    font-size: 17px;
+    margin: 0;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 8px;
+}
+
+/* All sections */
+section {
+    padding: 16px 20px;
+}
+
+/* Progress section */
+.summary {
+    padding-top: 18px;
+    padding-bottom: 20px;
+}
+
+.section-heading {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 20px;
+}
+
+.progress-caption {
+    margin-top: 12px;
+    font-size: 8px;
+}
+
+/* Add task section */
+.add-section h2 {
+    margin-bottom: 12px;
+}
+
+#taskInput {
+    padding: 10px;
+}
+
+button {
+    padding: 10px 13px;
+}
+
+/* Filter section */
+.filter-section {
+    padding: 15px;
+    gap: 20px;
+}
+
+/* Task section */
+.tasks-section {
+    padding: 18px 20px;
+}
+
+/* Individual tasks */
+#taskList li {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.task-text {
+    font-size: 22px;
+}
+
+/* Make task list independently scrollable */
+#taskList {
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 4px 8px 8px 4px;
+}
+
+/* Pixel-style scrollbar */
+#taskList::-webkit-scrollbar {
+    width: 10px;
+}
+
+#taskList::-webkit-scrollbar-track {
+    background: #211e27;
+}
+
+#taskList::-webkit-scrollbar-thumb {
+    background: #d94f91;
+    border: 2px solid #211e27;
+}
+
+/* Empty message */
+.empty-message {
+    padding: 12px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .container {
+        margin: 10px auto;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 13px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .filter-section {
+        gap: 5px;
+    }
+
+    #taskList {
+        max-height: 230px;
+    }
+}
